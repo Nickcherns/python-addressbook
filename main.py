@@ -1,3 +1,15 @@
+#
+#
+# TO DO:
+# 1. add input validation
+#   a. email address
+#   b. phone number
+#   c. names (numbers not allowed)
+# 2. prettify
+# 3. when address book is empty, have it display an empty message
+#
+#
+
 from addressBook import AddressBook
 
 book = AddressBook()
@@ -18,19 +30,26 @@ def mainMenu():
 def selectMainMenu():
     selection = input("Enter a number to continue... ")
 
-    if selection == "1":
+    
+    
+    
+    
+    
+    
+    if selection == "1": # 1. Add an Entry [WORKS]
         print("DEBUG: Selection = 1")
-        addEntryToBook()
-    elif selection == "2":
+        addEntryToBook() 
+    elif selection == "2": # 2. Remove an Entry
         print("DEBUG: Selection = 2")
-    elif selection == "3":
+    elif selection == "3": # 3. Search for an Entry
         print("DEBUG: Selection = 3")
-    elif selection == "4":
+    elif selection == "4": # 4. Print the Address Book [WORKS + DEBUG CHECK]
         print("DEBUG: Selection = 4")
-        printAddressBook()
-    elif selection == "5":
+        printAddressBook() 
+    elif selection == "5": # 5. Clear Address Book [WORKS - book needs clarification when empty]
         print("DEBUG: Selection = 5")
-    elif selection == "6":
+        clearAddressBook()
+    elif selection == "6": # 6. Quit [WORKS]
         print("DEBUG: Selection = 6")
         exit(1)
     else:
@@ -56,6 +75,11 @@ def addEntryToBook():
 def printAddressBook():
     book.printBook(book.book)
     print(book.debugPrintRawBook())
+    returnToMainMenu()
+
+def clearAddressBook():
+    book.clearBook()
+    print("Address Book is cleared!")
     returnToMainMenu()
 
 def returnToMainMenu():

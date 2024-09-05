@@ -29,13 +29,36 @@ class AddressBook:
 
     def addEntry(self, newEntry):
         bookCount = self.countBook()
-        self.book.update({("Entry" + str(bookCount + 1)), newEntry})
+        userEntry = {("Entry" + str(bookCount + 1)): newEntry}
+        self.book.update(userEntry)
 
     def countBook(self):
         bookList = len(self.book)
         return bookList
     
+    def clearBook(self):
+        for i in self.book.copy():
+            del self.book[i]
+
+    def searchBook(self, searchType, searchValue):
+        # open dictionary to nested dictionary
+        # match search type with nested dict key
+        #   for each key in each nested dict
+        #       if searchValue == nested dict value
+        #           display found entry
+        searchValue = searchValue.lower()
+        if searchType == "first name":
+            pass
+        elif searchType == "last name":
+            pass
+        elif searchType == "phone number":
+            pass
+        elif searchType == "email address":
+            pass
+    
     def debugPrintRawBook(self):
-        print(self.book)
+        print(self.book.keys())
+        for i in self.book:
+            print(self.book[i])
 
 
