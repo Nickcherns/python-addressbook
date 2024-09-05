@@ -43,6 +43,7 @@ def selectMainMenu():
         print("DEBUG: Selection = 2")
     elif selection == "3": # 3. Search for an Entry
         print("DEBUG: Selection = 3")
+        searchAddressBook()
     elif selection == "4": # 4. Print the Address Book [WORKS + DEBUG CHECK]
         print("DEBUG: Selection = 4")
         printAddressBook() 
@@ -76,6 +77,30 @@ def printAddressBook():
     book.printBook(book.book)
     print(book.debugPrintRawBook())
     returnToMainMenu()
+
+def searchAddressBook():
+    print("\nSelect your search type....")
+    print("1. First Name")
+    print("2. Last Name")
+    print("3. Phone Number")
+    print("4. Email Address")
+    selection = input("Input your selection: ")
+    if selection == 1:
+        searchType = "first name"
+        searchValue = input("\nEnter first name to search by: ")
+        print(book.searchBook(searchType, searchValue))
+    elif selection == 2:
+        searchType = "last name"
+        searchValue = input("\nEnter last name to search by: ")
+        print(book.searchBook(searchType, searchValue))
+    elif selection == 3:
+        searchType = "phone number"
+        searchValue = input("\nEnter phone number to search by: ")
+        print(book.searchBook(searchType, searchValue))
+    elif selection == 4:
+        searchType = "email address"
+        searchValue = input("\nEnter email address to search by: ")
+        print(book.searchBook(searchType, searchValue))
 
 def clearAddressBook():
     book.clearBook()

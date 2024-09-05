@@ -22,8 +22,8 @@ class AddressBook:
         print("\n\n---------------------------")
         print("-------" + self.name + "--------")
         print("---------------------------")
-        for i in dict:
-            for key, value in dict[i].items():
+        for entry in dict:
+            for key, value in dict[entry].items():
                 print(key, value)
             print("---------------------------")
 
@@ -47,14 +47,20 @@ class AddressBook:
         #       if searchValue == nested dict value
         #           display found entry
         searchValue = searchValue.lower()
-        if searchType == "first name":
-            pass
-        elif searchType == "last name":
-            pass
-        elif searchType == "phone number":
-            pass
-        elif searchType == "email address":
-            pass
+        for entry in self.book:
+            for key, value in self.book[entry].items:
+                lowerCaseKey = key.lower()
+                if searchType in lowerCaseKey:
+                    if searchValue in value:
+                        return self.book[entry]
+                # if searchType == "first name":
+                #     pass
+                # elif searchType == "last name":
+                #     pass
+                # elif searchType == "phone number":
+                #     pass
+                # elif searchType == "email address":
+                #     pass
     
     def debugPrintRawBook(self):
         print(self.book.keys())
